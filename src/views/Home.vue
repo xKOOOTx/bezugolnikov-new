@@ -1,11 +1,8 @@
 <template>
   <div class="home">
     <div class="wrapper"
-      v-for="(image, idx) in homeImages"
-         :key="idx"
     >
-      sdfghjkl
-      <img :src="image.path">
+      <img src="../assets/img/2k/flower.jpg">
 
     </div>
   </div>
@@ -57,7 +54,8 @@ export default {
 
 .wrapper {
   display: contents;
-  background: url("../assets/img/2k/flower.jpg");
+  width: 100%;
+  height: 100vh;
 }
 
 .block {

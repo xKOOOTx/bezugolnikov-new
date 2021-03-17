@@ -4,4 +4,9 @@
   box-sizing: border-box;
 }
 
+body {
+  display: contents;
+  overflow-x: hidden;
+}
+
 /*# sourceMappingURL=style.css.map */
