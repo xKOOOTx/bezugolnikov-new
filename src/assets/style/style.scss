@@ -6,4 +6,12 @@
 
 body {
   overflow: hidden;
+  & a {
+    text-decoration: none;
+  }
 }
+
+.center {
+  padding: 0 100px;
+}
+
