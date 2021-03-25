@@ -1,20 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="backgroundwrapper">
+      <Nav />
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
+<script>
+import Nav from '@/components/Nav'
 
+export default {
+  name: 'App',
+  components: {
+    Nav
+  }
+}
+</script>
 <style lang="scss">
+@import "assets/style/style";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: black;
 }
 
 #nav {
@@ -28,5 +38,12 @@
       color: #42b983;
     }
   }
+}
+
+.backgroundwrapper {
+  background: url("./assets/img/2k/mountains.jpg") center no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
 }
 </style>
