@@ -1,11 +1,5 @@
 <template>
-  <nav class="nav center">
-    <a href="#" class="nav__link">
-<!--      <img src="../assets/img/logo/two-squares/logo_transparent.png" alt="logo">-->
-      <v-img
-        class="nav__logo"
-        src="../assets/img/logo/two-squares/logo_transparent.png" />
-    </a>
+  <nav class="nav">
     <div class="nav__block">
       <ul class="nav__ul">
         <li class="nav__li">
@@ -36,45 +30,18 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 120px 100px 100px 500px;
   //position: fixed;
-  &__link {
-    position: relative;
-    width: 300px;
-    background-color: rgba(#fff, .3);
-    &:after {
-      display: block;
-      content: '';
-      position: absolute;
-      bottom: -150px;
-      left: 0;
-      border-top: 150px solid rgba(#fff, .3);;
-      border-left: 0 solid transparent;
-      border-right: 150px solid transparent;
-    }
-    &:before {
-      display: block;
-      content: '';
-      position: absolute;
-      bottom: -150px;
-      right: 0;
-      border-top: 150px solid rgba(#fff, .3);;
-      border-left: 150px solid transparent;
-      border-right: 0 solid transparent;
-    }
-  }
-
-  &__logo {
-    width: 100%;
-    height: auto;
-  }
 
   &__ul {
     display: flex;
     list-style: none;
+    padding-left: 0;
   }
 
   &__li {
-    margin: 0 20px;
+    padding-left: 150px;
+
     &_link {
       position: relative;
       display: block;
@@ -82,6 +49,8 @@ export default {
       padding: 0.625rem 1.25rem;
       text-transform: uppercase;
       overflow: hidden;
+      color: white;
+      transition: background-color .2s ease-in, color .2s ease-in;
 
       &:before {
         transform: translateX(100%);
@@ -108,7 +77,8 @@ export default {
       }
 
       &:hover {
-        color: inherit;
+        color: black;
+        background-color: rgba(#fff, .35);
         text-decoration: none;
 
         &:before {
