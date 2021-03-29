@@ -1,0 +1,186 @@
+<template>
+  <div class="gallery center">
+    <div class="gallery__block events">
+      <span>events</span>
+    </div>
+    <div class="gallery__block official">
+      <span>official</span>
+    </div>
+    <div class="gallery__block portrait">
+      <span>portrait</span>
+    </div>
+    <div class="gallery__block repo">
+      <span>repo</span>
+    </div>
+    <div class="gallery__block studio">
+      <span>studio</span>
+    </div>
+    <div class="gallery__block wedding">
+      <span>wedding</span>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Gallery'
+}
+</script>
+
+<style lang="scss">
+@import "../assets/style/style";
+.gallery {
+  display: flex;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+  &__block {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transition: all .3s ease-in-out;
+    transition-duration: .5s;
+    background-size: cover!important;
+    filter: grayscale(1);
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      background-color: rgba(#000, 0);
+    }
+    &:hover {
+      width: 1000%;
+      filter: none;
+
+      &:after {
+        height: 200px;
+        background-color: rgba(#000, .7);
+      }
+    }
+
+    &:hover span {
+      animation: left .3s ease-in-out;
+      bottom: 10%;
+      left: 50%;
+      transform: rotate(0);
+    }
+
+    & span {
+      display: inline-block;
+      position: absolute;
+      bottom: 50%;
+      left: 20%;
+      transform: rotate(-90deg);
+      margin: 0 auto;
+      text-transform: uppercase;
+      color: white;
+      font-size: 36px;
+      z-index: 3;
+    }
+  }
+}
+
+.events {
+  background: url('../assets/images/2k/events.jpg') center no-repeat;
+}
+.official {
+  background: url('../assets/images/2k/official.jpg') center no-repeat;
+}
+.portrait {
+  background: url('../assets/images/2k/portrait.jpg') center no-repeat;
+}
+.repo {
+  background: url('../assets/images/2k/repo.jpg') center no-repeat;
+}
+.studio {
+  background: url('../assets/images/2k/studio.jpg') center no-repeat;
+}
+.wedding {
+  background: url('../assets/images/2k/wedding.jpg') center no-repeat;
+}
+
+@keyframes left {
+  0% {
+    bottom: 50%;
+    transform: rotate(-90deg);
+  }
+  10% {
+    bottom: 48%;
+    transform: rotate(-80deg);
+  }
+  20% {
+    bottom: 46%;
+    transform: rotate(-70deg);
+  }
+  30% {
+    bottom: 45%;
+    transform: rotate(-60deg);
+  }
+  40% {
+    bottom: 40%;
+    transform: rotate(-50deg);
+  }
+  50% {
+    bottom: 35%;
+    transform: rotate(-40deg);
+  }
+  60% {
+    bottom: 30%;
+    transform: rotate(-30deg);
+  }
+  70% {
+    bottom: 25%;
+    transform: rotate(-20deg);
+  }
+  80% {
+    bottom: 20%;
+    transform: rotate(-10deg);
+  }
+  90% {
+    bottom: 15%;
+    transform: rotate(-5deg);
+  }
+  100% {
+    bottom: 10%;
+    transform: rotate(0);
+  }
+}
+@keyframes background {
+  0% {
+    height: 0;
+  }
+  10% {
+    height: 20px;
+  }
+  20% {
+    height: 40px;
+  }
+  30% {
+    height: 60px;
+  }
+  40% {
+    height: 80px;
+  }
+  50% {
+    height: 100px;
+  }
+  60% {
+    height: 120px;
+  }
+  70% {
+    height: 140px;
+  }
+  80% {
+    height: 160px;
+  }
+  90% {
+    height: 180px;
+  }
+  100% {
+    height: 200px;
+  }
+}
+</style>
