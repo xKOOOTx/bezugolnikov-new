@@ -27,17 +27,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/style/variables";
+@import "../assets/style/mixins";
 .nav {
   color: #fff;
+  @include breakpoint($tablet-bp) {
+    display: none;
+  }
   &__ul {
     display: flex;
     justify-content: flex-end;
     list-style: none;
     padding: 0;
     text-align: center;
+    @include breakpoint($tablet-bp) {
+      flex-direction: column;
+    }
   }
   &__li {
     margin-right: 100px;
+    @include breakpoint($tablet-bp) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
     &_link {
       position: relative;
       display: block;
@@ -52,6 +66,19 @@ export default {
       font-weight: 400;
 
       transition: background-color .2s ease-in, color .2s ease-in;
+
+      @include breakpoint($tablet-bp) {
+        width: 100%;
+        margin: 10px 0;
+        padding: 20px 0;
+        border: 1px solid #fff;
+        font-size: 24px;
+      }
+      @include breakpoint($small-mobile-bp) {
+        margin: 10px 0;
+        padding: 20px 0;
+        font-size: 18px;
+      }
       &:before {
         box-sizing: border-box;
         transform: translateX(100%);

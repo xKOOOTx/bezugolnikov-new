@@ -1,23 +1,23 @@
 <template>
   <div class="gallery center">
-    <div class="gallery__block events">
+    <router-link to="/events" class="gallery__block events">
       <span>events</span>
-    </div>
-    <div class="gallery__block official">
+    </router-link>
+    <router-link to="/official" class="gallery__block official">
       <span>official</span>
-    </div>
-    <div class="gallery__block portrait">
+    </router-link>
+    <router-link to="/portrait" class="gallery__block portrait">
       <span>portrait</span>
-    </div>
-    <div class="gallery__block repo">
-      <span>repo</span>
-    </div>
-    <div class="gallery__block studio">
+    </router-link>
+    <router-link to="repo" class="gallery__block repo">
+      <span>reports</span>
+    </router-link>
+    <router-link to="studio" class="gallery__block studio">
       <span>studio</span>
-    </div>
-    <div class="gallery__block wedding">
+    </router-link>
+    <router-link to="wedding" class="gallery__block wedding">
       <span>wedding</span>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -29,11 +29,16 @@ export default {
 
 <style lang="scss">
 @import "../assets/style/style";
+@import "../assets/style/variables";
+@import "../assets/style/mixins";
 .gallery {
   display: flex;
   height: 100vh;
   background-color: black;
   overflow: hidden;
+  @include breakpoint($tablet-bp) {
+    flex-wrap: wrap;
+  }
   &__block {
     position: relative;
     height: 100%;
@@ -42,6 +47,10 @@ export default {
     transition-duration: .5s;
     background-size: cover!important;
     filter: grayscale(1);
+    @include breakpoint($tablet-bp) {
+      width: 50%;
+      height: auto;
+    }
     &:after {
       display: block;
       content: '';
@@ -50,22 +59,21 @@ export default {
       width: 100%;
       height: 0;
       background-color: rgba(#000, 0);
+      @include breakpoint($tablet-bp) {
+        display: none;
+      }
     }
     &:hover {
       width: 1000%;
       filter: none;
+      @include breakpoint($tablet-bp) {
+        width: 50%;
+      }
 
       &:after {
-        height: 200px;
+        height: 50px;
         background-color: rgba(#000, .7);
       }
-    }
-
-    &:hover span {
-      animation: left .3s ease-in-out;
-      bottom: 10%;
-      left: 50%;
-      transform: rotate(0);
     }
 
     & span {
@@ -78,7 +86,58 @@ export default {
       text-transform: uppercase;
       color: white;
       font-size: 36px;
-      z-index: 3;
+      //z-index: 3;
+      @include breakpoint($tablet-bp) {
+        //width: 100%;
+        top: 65%;
+        bottom: 35%;
+        padding: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 15%;
+        transform: rotate(0);
+        font-weight: 800;
+        border: 1px solid rgba(#fff, .1);
+        background: rgba(#fff, .1);
+        box-shadow: 20px 20px 50px rgba(#000, .5);
+        overflow: hidden;
+      }
+      @include breakpoint($mobile-bp) {
+        left: 0;
+        width: 100%;
+        padding: 40px 0;
+        bottom: 0;
+        font-size: 18px;
+      }
+    }
+
+    &:hover span {
+      animation: left .3s ease-in-out;
+      bottom: 0;
+      left: 50%;
+      transform: rotate(0);
+      @include breakpoint($tablet-bp) {
+        animation: none;
+        //width: 100%;
+        top: 65%;
+        bottom: 35%;
+        padding: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 15%;
+        transform: rotate(0);
+        border: 1px solid rgba(#fff, .1);
+        background: rgba(#fff, .1);
+        box-shadow: 20px 20px 50px rgba(#000, .5);
+      }
+      @include breakpoint($mobile-bp) {
+        left: 0;
+        width: 100%;
+        padding: 40px 0;
+        bottom: 0;
+      }
     }
   }
 }
@@ -94,6 +153,11 @@ export default {
 }
 .repo {
   background: url('../assets/images/2k/repo.jpg') center no-repeat;
+  & span {
+    @include breakpoint($mobile-bp) {
+      left: 0;
+    }
+  }
 }
 .studio {
   background: url('../assets/images/2k/studio.jpg') center no-repeat;
@@ -108,43 +172,43 @@ export default {
     transform: rotate(-90deg);
   }
   10% {
-    bottom: 48%;
+    bottom: 45%;
     transform: rotate(-80deg);
   }
   20% {
-    bottom: 46%;
+    bottom: 40%;
     transform: rotate(-70deg);
   }
   30% {
-    bottom: 45%;
+    bottom: 35%;
     transform: rotate(-60deg);
   }
   40% {
-    bottom: 40%;
+    bottom: 30%;
     transform: rotate(-50deg);
   }
   50% {
-    bottom: 35%;
+    bottom: 25%;
     transform: rotate(-40deg);
   }
   60% {
-    bottom: 30%;
+    bottom: 20%;
     transform: rotate(-30deg);
   }
   70% {
-    bottom: 25%;
+    bottom: 15%;
     transform: rotate(-20deg);
   }
   80% {
-    bottom: 20%;
+    bottom: 10%;
     transform: rotate(-10deg);
   }
   90% {
-    bottom: 15%;
+    bottom: 5%;
     transform: rotate(-5deg);
   }
   100% {
-    bottom: 10%;
+    bottom: 0%;
     transform: rotate(0);
   }
 }
@@ -153,34 +217,34 @@ export default {
     height: 0;
   }
   10% {
-    height: 20px;
+    height: 5px;
   }
   20% {
-    height: 40px;
+    height: 10px;
   }
   30% {
-    height: 60px;
+    height: 15px;
   }
   40% {
-    height: 80px;
+    height: 20px;
   }
   50% {
-    height: 100px;
+    height: 25px;
   }
   60% {
-    height: 120px;
+    height: 30px;
   }
   70% {
-    height: 140px;
+    height: 35px;
   }
   80% {
-    height: 160px;
+    height: 40px;
   }
   90% {
-    height: 180px;
+    height: 45px;
   }
   100% {
-    height: 200px;
+    height: 50px;
   }
 }
 </style>
