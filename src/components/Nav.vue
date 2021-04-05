@@ -2,14 +2,20 @@
   <div class="nav">
     <ul class="nav__ul">
       <li class="nav__li">
-        <a href="#" class="nav__li_link">
+        <router-link
+          to="/gallery"
+          class="nav__li_link"
+        >
           Gallery
-        </a>
+        </router-link>
       </li>
       <li class="nav__li">
-        <a href="#" class="nav__li_link">
+        <router-link
+          to="/about"
+          class="nav__li_link"
+        >
           About
-        </a>
+        </router-link>
       </li>
       <li class="nav__li">
         <a href="#" class="nav__li_link">

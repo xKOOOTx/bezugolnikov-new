@@ -8,7 +8,7 @@
         <a href="#">by Alex Gusev</a>
         <span class="label__logo_copy">
           &copy;
-          <span class="label__logo_date">2021</span>
+          <span class="label__logo_date">2020</span>
         </span>
       </div>
       <Nav class="label__nav" />
@@ -99,8 +99,8 @@ export default {
     }
     &_photographer {
       font-weight: 300;
-      font-size: 20px;
-      text-align: center;
+      font-size: 16px;
+      text-align: left;
     }
     & a {
       display: block;
@@ -108,7 +108,7 @@ export default {
       color: white;
       font-size: 24px;
       text-align: right;
-      margin-top: 10px;
+      margin-top: 20px;
       text-decoration: none;
       transition: color .1s ease-in;
       &:hover {
@@ -121,7 +121,10 @@ export default {
       }
     }
     &_copy {
-      font-size: 12px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 16px;
       color: #ffffff;
       text-align: right;
     }

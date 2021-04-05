@@ -5,14 +5,14 @@
         Micheal<span>Bezugolnikov</span>
       </router-link>
     </div>
-    <ul class="galleryNav__ul">
-      <li class="galleryNav__li">
-        <router-link to="/">Gallery</router-link>
-      </li>
-      <li class="galleryNav__li">
-        <router-link to="/">About</router-link>
-      </li>
-    </ul>
+    <div class="galleryNav__block">
+      <router-link
+        to="/Gallery"
+        class="galleryNav__link">Gallery</router-link>
+      <router-link
+        to="/About"
+        class="galleryNav__link">About</router-link>
+    </div>
   </div>
 </template>
 
@@ -25,26 +25,19 @@ export default {
 <style scoped lang="scss">
 .galleryNav {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: fixed;
+  height: 100vh;
+  width: 7%;
   background-color: #000;
   color: #fff;
-
-/*  &:after {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(#000, .8);
-  }*/
 
   &__logo {
     display: flex;
     flex-direction: column;
+    margin-top: 100px;
     & span {
       font-weight: 800;
       font-size: 18px;
@@ -53,23 +46,32 @@ export default {
       display: flex;
       flex-direction: column;
       text-align: left;
-      padding: 10px;
+      padding: 10px;transform: rotate(-90deg);
       transition: background-color .3s ease-in, color .3s ease-in;
-
-      &:hover {
-        background: rgba(#fff, .4);
-        /*background-color: #fff;*/
-        color: black;
-      }
     }
   }
 
-  &__ul {
+  &__block {
     list-style: none;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
   }
-  &__li {
-    margin: 5px 30px;
+
+  &__link {
+    font-size: 18px;
+    letter-spacing: 3px;
+    padding: 10px 10px;
+    margin: 50px 0;
+    border-radius: 5px;
+    transform: rotateZ(-90deg);
+    transition: background-color .2s ease-in-out, color.2s ease-in-out;
+    &:hover {
+      background: rgba(#fff, .7);
+      color: black;
+    }
   }
 }
 </style>
