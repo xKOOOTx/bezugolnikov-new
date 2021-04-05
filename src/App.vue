@@ -1,13 +1,16 @@
 <template>
   <div id="app">
+    <Preloader />
     <router-view />
   </div>
 </template>
 
 <script>
+import Preloader from '@/components/Preloader'
 export default {
   name: 'App',
   components: {
+    Preloader
   }
 }
 </script>

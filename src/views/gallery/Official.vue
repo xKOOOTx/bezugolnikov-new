@@ -1,12 +1,17 @@
 <template>
-<div class="official">
-  OFFICIAL
-</div>
+  <div class="official">
+    <Preloader />
+    OFFICIAL
+  </div>
 </template>
 
 <script>
+import Preloader from '../../components/Preloader'
 export default {
-  name: 'Official'
+  name: 'Official',
+  components: {
+    Preloader
+  }
 }
 </script>
 

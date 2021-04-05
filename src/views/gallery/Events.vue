@@ -1,5 +1,6 @@
 <template>
   <div class="events">
+    <Preloader />
     <GalleryNav />
     <CoolLightBox
       :items="items"
@@ -22,11 +23,13 @@
 
 <script>
 import GalleryNav from '../../components/GalleryNav'
+import Preloader from '../../components/Preloader'
 
 export default {
   name: 'Events',
   components: {
-    GalleryNav
+    GalleryNav,
+    Preloader
   },
   data () {
     return {

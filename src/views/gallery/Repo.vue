@@ -1,10 +1,17 @@
 <template>
-  <div class="repo">REPO</div>
+  <div class="repo">
+    <Preloader />
+    REPO
+  </div>
 </template>
 
 <script>
+import Preloader from '../../components/Preloader'
 export default {
-  name: 'Repo'
+  name: 'Repo',
+  components: {
+    Preloader
+  }
 }
 </script>
 

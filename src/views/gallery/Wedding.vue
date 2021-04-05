@@ -1,10 +1,17 @@
 <template>
-  <div class="wedding">WEDDING</div>
+  <div class="wedding">
+    <Preloader />
+    WEDDING
+  </div>
 </template>
 
 <script>
+import Preloader from '../../components/Preloader'
 export default {
-  name: 'Wedding'
+  name: 'Wedding',
+  components: {
+    Preloader
+  }
 }
 </script>
 

@@ -1,10 +1,17 @@
 <template>
-  <div class="portrait">PORTRAIT</div>
+  <div class="portrait">
+    <Preloader />
+    PORTRAIT
+  </div>
 </template>
 
 <script>
+import Preloader from '../../components/Preloader'
 export default {
-  name: 'Portrait'
+  name: 'Portrait',
+  components: {
+    Preloader
+  }
 }
 </script>
 
