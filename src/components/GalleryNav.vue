@@ -31,13 +31,14 @@ export default {
   position: fixed;
   height: 100vh;
   width: 7%;
-  background-color: #000;
+  background: linear-gradient(#fff, transparent);
   color: #fff;
 
   &__logo {
     display: flex;
     flex-direction: column;
     margin-top: 100px;
+    color: #000;
     & span {
       font-weight: 800;
       font-size: 18px;

@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "swiper": "^6.5.0",
     "vanilla-tilt": "^1.7.0",
     "vue": "^2.6.11",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-cool-lightbox": "^2.7.1",
     "vue-image-wall": "^1.1.0",
     "vue-masonry-css": "^1.0.3",

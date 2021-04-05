@@ -1,24 +1,30 @@
 <template>
   <div class="events">
     <GalleryNav />
-    <waterfall :line-gap="200" :watch="items">
-      <!-- each component is wrapped by a waterfall slot -->
-      <waterfall-slot
-        v-for="(item, index) in items"
-        :width="item.width"
-        :height="item.height"
-        :order="index"
-        :key="item.id"
-      >
-        <img :src=item alt="photo">
-        <!--
-          your component
-        -->
-      </waterfall-slot>
-    </waterfall>
+    <swiper class="swiper" :options="swiperOption">
+      <swiper-slide>Slide 1</swiper-slide>
+      <swiper-slide>Slide 2</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+      <swiper-slide>Slide 4</swiper-slide>
+      <swiper-slide>Slide 5</swiper-slide>
+      <swiper-slide>Slide 6</swiper-slide>
+      <swiper-slide>Slide 7</swiper-slide>
+      <swiper-slide>Slide 8</swiper-slide>
+      <swiper-slide>Slide 9</swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
+    </swiper>
 <!--    <div class="events__block">
-      <div class="events__gallery" v-for="(item, idx) in items" :key="idx">
-        <img :src="item" class="events__image">
+      <div class="events__wrapper"
+           v-for="(item, index) in items"
+           :key="index"
+      >
+        <img
+          :src=item
+          alt="photo"
+          class="events__img"
+        >
       </div>
     </div>-->
   </div>
@@ -26,75 +32,70 @@
 
 <script>
 import GalleryNav from '../../components/GalleryNav'
-import Waterfall from 'vue-waterfall/lib/waterfall'
-import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
   name: 'Events',
   components: {
     GalleryNav,
-    Waterfall,
-    WaterfallSlot
+    swiper,
+    swiperSlide
   },
   data () {
     return {
       items: [
         require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/portrait.jpg'),
-        require('../../assets/images/2k/repo.jpg'),
-        require('../../assets/images/2k/studio.jpg'),
-        require('../../assets/images/2k/wedding.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/portrait.jpg'),
-        require('../../assets/images/2k/repo.jpg'),
-        require('../../assets/images/2k/studio.jpg'),
-        require('../../assets/images/2k/wedding.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/portrait.jpg'),
-        require('../../assets/images/2k/repo.jpg'),
-        require('../../assets/images/2k/studio.jpg'),
-        require('../../assets/images/2k/wedding.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/portrait.jpg'),
-        require('../../assets/images/2k/repo.jpg'),
-        require('../../assets/images/2k/studio.jpg'),
-        require('../../assets/images/2k/wedding.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/portrait.jpg'),
-        require('../../assets/images/2k/repo.jpg'),
-        require('../../assets/images/2k/studio.jpg'),
-        require('../../assets/images/2k/wedding.jpg')
-      ]
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg')
+      ],
+      swiperOption: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
+      }
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+
 .events {
-  background: none;
+  background: rgba(#000, .9);
   height: 100vh;
   overflow-x: hidden;
   &__block {
-    margin-left: 7%;
+    width: 93%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    width: 100% - 7%;
+    margin: 0 15%;
   }
-  &__gallery {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 10px;
-    overflow: hidden;
+  &__wrapper {
+    height: 300px;
+    width: 600px;
+    margin: 70px 50px;
   }
-  &__image {
-    width: 300px;
-    height: 200px;
+  &__img {
+    height: auto;
+    width: 100%;
   }
 }
 </style>
