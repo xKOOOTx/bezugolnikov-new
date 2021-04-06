@@ -1,30 +1,35 @@
 <template>
-  <div class="events">
+  <div class="galleryComponent">
     <GalleryNav />
-    <swiper class="swiper" :options="swiperOption">
-      <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 4</swiper-slide>
-      <swiper-slide>Slide 5</swiper-slide>
-      <swiper-slide>Slide 6</swiper-slide>
-      <swiper-slide>Slide 7</swiper-slide>
-      <swiper-slide>Slide 8</swiper-slide>
-      <swiper-slide>Slide 9</swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
-    </swiper>
-<!--    <div class="events__block">
-      <div class="events__wrapper"
-           v-for="(item, index) in items"
-           :key="index"
+    <div class="slider">
+      <splide :options="options">
+        <splide-slide>
+          <img src="../../assets/images/2k/events.jpg">
+        </splide-slide>
+        <splide-slide>
+          <img src="../../assets/images/2k/events.jpg">
+        </splide-slide>
+        <splide-slide>
+          <img src="../../assets/images/2k/events.jpg">
+        </splide-slide>
+        <splide-slide>
+          <img src="../../assets/images/2k/events.jpg">
+        </splide-slide>
+      </splide>
+    </div>
+<!--    <div class="galleryComponent__block">
+      <CoolLightBox
+        :items="items"
+        :index="index"
+        :useZoomBar="true"
+        @close="index = null">
+      </CoolLightBox>
+      <div class="galleryComponent__wrapper"
+           v-for="(image, imageIndex) in items"
+           :key="imageIndex"
+           @click="index = imageIndex"
+           :style="{ backgroundImage: 'url(' + image + ')' }"
       >
-        <img
-          :src=item
-          alt="photo"
-          class="events__img"
-        >
       </div>
     </div>-->
   </div>
@@ -32,15 +37,11 @@
 
 <script>
 import GalleryNav from '../../components/GalleryNav'
-import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
   name: 'Events',
   components: {
-    GalleryNav,
-    swiper,
-    swiperSlide
+    GalleryNav
   },
   data () {
     return {
@@ -54,22 +55,28 @@ export default {
         require('../../assets/images/2k/events.jpg'),
         require('../../assets/images/2k/events.jpg'),
         require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
+        require('../../assets/images/2k/events.jpg'),
         require('../../assets/images/2k/events.jpg')
       ],
-      swiperOption: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        slidesPerGroup: 3,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        }
+      index: null,
+      options: {
+        autoHeight: true,
+        perPage: 2,
+        cover: true,
+        autoplay: true,
+        lazyload: 'nearby',
+        gap: '1rem'
       }
     }
   }
@@ -78,7 +85,7 @@ export default {
 
 <style scoped lang="scss">
 
-.events {
+.galleryComponent {
   background: rgba(#000, .9);
   height: 100vh;
   overflow-x: hidden;
@@ -86,16 +93,19 @@ export default {
     width: 93%;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 15%;
+    margin: 0 11%;
   }
   &__wrapper {
-    height: 300px;
-    width: 600px;
-    margin: 70px 50px;
+    height: 500px;
+    width: 750px;
+    margin: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
-  &__img {
-    height: auto;
-    width: 100%;
-  }
+}
+.slider {
+  height: 100vh;
+  width: 100%;
 }
 </style>
