@@ -1,38 +1,13 @@
 <template>
   <div class="galleryComponent">
     <GalleryNav />
-    <div class="slider">
-      <splide :options="options">
-        <splide-slide>
-          <img src="../../assets/images/2k/events.jpg">
-        </splide-slide>
-        <splide-slide>
-          <img src="../../assets/images/2k/events.jpg">
-        </splide-slide>
-        <splide-slide>
-          <img src="../../assets/images/2k/events.jpg">
-        </splide-slide>
-        <splide-slide>
-          <img src="../../assets/images/2k/events.jpg">
-        </splide-slide>
-      </splide>
+    <splide :options="options">
+      <splide-slide v-for="(item, idx) in items" :key="idx">
+        <div :style={background:item}></div>
+<!--        <img :src=item alt="photo" class="galleryComponent__image">-->
+      </splide-slide>
+    </splide>
     </div>
-<!--    <div class="galleryComponent__block">
-      <CoolLightBox
-        :items="items"
-        :index="index"
-        :useZoomBar="true"
-        @close="index = null">
-      </CoolLightBox>
-      <div class="galleryComponent__wrapper"
-           v-for="(image, imageIndex) in items"
-           :key="imageIndex"
-           @click="index = imageIndex"
-           :style="{ backgroundImage: 'url(' + image + ')' }"
-      >
-      </div>
-    </div>-->
-  </div>
 </template>
 
 <script>
@@ -47,36 +22,20 @@ export default {
     return {
       items: [
         require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg'),
-        require('../../assets/images/2k/events.jpg')
+        require('../../assets/images/2k/official.jpg'),
+        require('../../assets/images/2k/portrait.jpg'),
+        require('../../assets/images/2k/repo.jpg'),
+        require('../../assets/images/2k/studio.jpg'),
+        require('../../assets/images/2k/wedding.jpg')
       ],
       index: null,
       options: {
+        type: 'fade',
+        width: '100%',
         autoHeight: true,
-        perPage: 2,
-        cover: true,
+        perPage: 1,
         autoplay: true,
-        lazyload: 'nearby',
-        gap: '1rem'
+        interval: 7000
       }
     }
   }
@@ -84,28 +43,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "/src/assets/style/mixins";
+@import "/src/assets/style/style";
+@import "/src/assets/style/variables";
 
 .galleryComponent {
-  background: rgba(#000, .9);
+  background: #000;
   height: 100vh;
-  overflow-x: hidden;
-  &__block {
-    width: 93%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 11%;
-  }
+  overflow: hidden;
   &__wrapper {
-    height: 500px;
-    width: 750px;
-    margin: 30px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
   }
-}
-.slider {
-  height: 100vh;
-  width: 100%;
+  &__image {
+    @include breakpoint($forKResolution) {
+      min-width: 3840px;
+      height: auto;
+    }
+  }
 }
 </style>

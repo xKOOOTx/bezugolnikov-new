@@ -23,22 +23,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "/src/assets/style/mixins";
+@import "/src/assets/style/style";
+@import "/src/assets/style/variables";
+
 .galleryNav {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   position: fixed;
-  height: 100vh;
-  width: 7%;
-  background: linear-gradient(#fff, transparent);
+  top: 0;
+  z-index: 1;
+  width: 100%;
   color: #fff;
 
   &__logo {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
-    color: #000;
+    color: #fff;
     & span {
       font-weight: 800;
       font-size: 18px;
@@ -47,7 +49,6 @@ export default {
       display: flex;
       flex-direction: column;
       text-align: left;
-      padding: 10px;transform: rotate(-90deg);
       transition: background-color .3s ease-in, color .3s ease-in;
     }
   }
@@ -55,10 +56,8 @@ export default {
   &__block {
     list-style: none;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 70px;
   }
 
   &__link {
@@ -67,11 +66,13 @@ export default {
     padding: 10px 10px;
     margin: 50px 0;
     border-radius: 5px;
-    transform: rotateZ(-90deg);
     transition: background-color .2s ease-in-out, color.2s ease-in-out;
     &:hover {
       background: rgba(#fff, .7);
       color: black;
+    }
+    @include breakpoint($forKResolution) {
+      font-size: 32px;
     }
   }
 }
