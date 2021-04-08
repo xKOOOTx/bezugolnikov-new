@@ -1,18 +1,23 @@
 <template>
   <div class="galleryComponent">
     <GalleryNav />
-    <div class="galleryComponent__block">
-      <div class="galleryComponent__wrapper"
-           v-for="(item, index) in items"
-           :key="index"
-      >
-        <img
-          :src=item
-          alt="photo"
-          class="galleryComponent__img"
-        >
-      </div>
-    </div>
+    <CoolLightBox
+      :items="items"
+      :index="index"
+      :useZoomBar="true"
+      @close="index = null">
+    </CoolLightBox>
+    <splide :options="options">
+      <splide-slide v-for="(item, idx) in items" :key="idx">
+        <div class="images-wrapper">
+          <div
+            class="image"
+            @click="index = idx"
+            :style="{ backgroundImage: 'url(' + item + ')' }"
+          ></div>
+        </div>
+      </splide-slide>
+    </splide>
   </div>
 </template>
 
@@ -27,42 +32,46 @@ export default {
   data () {
     return {
       items: [
+        require('../../assets/images/2k/events.jpg'),
         require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/official.jpg'),
-        require('../../assets/images/2k/official.jpg')
-      ]
+        require('../../assets/images/2k/portrait.jpg'),
+        require('../../assets/images/2k/repo.jpg'),
+        require('../../assets/images/2k/studio.jpg'),
+        require('../../assets/images/2k/wedding.jpg')
+      ],
+      index: null,
+      options: {
+        type: 'loop',
+        autoHeight: true,
+        perPage: 1,
+        autoplay: true,
+        interval: 7000,
+        cover: true
+      }
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+@import "/src/assets/style/mixins";
+@import "/src/assets/style/style";
+@import "/src/assets/style/variables";
 
 .galleryComponent {
-  background: rgba(#000, .9);
+  background: #000;
   height: 100vh;
-  overflow-x: hidden;
-  &__block {
-    width: 93%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 15% 100px;
-  }
-  &__wrapper {
-    height: 300px;
-    width: 600px;
-    margin: 70px 50px;
-  }
-  &__img {
-    height: auto;
+  overflow: hidden;
+  &__image {
     width: 100%;
+    height: auto;
   }
+}
+.image {
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
 }
 </style>

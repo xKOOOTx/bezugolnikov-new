@@ -60,7 +60,7 @@ export default {
   background: url('../assets/images/DSC_9409.jpg') center no-repeat;
   background-size: cover;
   overflow: hidden;
-  @include breakpoint($mobile-bp) {
+  @include breakpoint($mobileL) {
     position: relative;
     justify-content: center;
     align-items: center;
@@ -76,7 +76,7 @@ export default {
   margin-left: 100px;
   background: linear-gradient(#fff, transparent);
 
-  @include breakpoint($mobile-bp) {
+  @include breakpoint($mobileL) {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -149,7 +149,7 @@ export default {
     }
   }
   &__arrow {
-    @include breakpoint($mobile-bp) {
+    @include breakpoint($mobileL) {
       margin-top: 60px;
     }
     @include breakpoint($small-mobile-bp) {
@@ -162,7 +162,7 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   width: 100%;
-  @include breakpoint($mobile-bp) {
+  @include breakpoint($mobileL) {
     width: 0;
   }
 }
@@ -171,7 +171,7 @@ export default {
   margin: 40px auto 10px auto;
   width: 38px;
   height: 100px;
-  @include breakpoint($mobile-bp) {
+  @include breakpoint($mobileL) {
     margin: 0 auto;
   }
 }

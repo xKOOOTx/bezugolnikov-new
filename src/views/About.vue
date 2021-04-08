@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    <GalleryNav />
     <section class="about__bubble education">
       <div >
         <div
@@ -53,8 +54,13 @@
 </template>
 
 <script>
+import GalleryNav from '../components/GalleryNav'
+
 export default {
-  name: 'About'
+  name: 'About',
+  components: {
+    GalleryNav
+  }
 }
 </script>
 
@@ -64,8 +70,6 @@ export default {
 @import "../assets/style/variables";
 
 .about {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   overflow: hidden;
   background-color: #fff;

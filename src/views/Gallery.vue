@@ -103,7 +103,7 @@ export default {
         box-shadow: 20px 20px 50px rgba(#000, .5);
         overflow: hidden;
       }
-      @include breakpoint($mobile-bp) {
+      @include breakpoint($mobileL) {
         left: 0;
         width: 100%;
         padding: 40px 0;
@@ -132,7 +132,7 @@ export default {
         background: rgba(#fff, .1);
         box-shadow: 20px 20px 50px rgba(#000, .5);
       }
-      @include breakpoint($mobile-bp) {
+      @include breakpoint($mobileL) {
         left: 0;
         width: 100%;
         padding: 40px 0;
@@ -154,7 +154,7 @@ export default {
 .repo {
   background: url('../assets/images/2k/repo.jpg') center no-repeat;
   & span {
-    @include breakpoint($mobile-bp) {
+    @include breakpoint($mobileL) {
       left: 0;
     }
   }

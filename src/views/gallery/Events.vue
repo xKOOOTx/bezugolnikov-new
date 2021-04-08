@@ -1,10 +1,21 @@
 <template>
   <div class="galleryComponent">
     <GalleryNav />
+    <CoolLightBox
+      :items="items"
+      :index="index"
+      :useZoomBar="true"
+      @close="index = null">
+    </CoolLightBox>
     <splide :options="options">
       <splide-slide v-for="(item, idx) in items" :key="idx">
-        <div :style={background:item}></div>
-<!--        <img :src=item alt="photo" class="galleryComponent__image">-->
+        <div class="images-wrapper">
+          <div
+            class="image"
+            @click="index = idx"
+            :style="{ backgroundImage: 'url(' + item + ')' }"
+          ></div>
+        </div>
       </splide-slide>
     </splide>
     </div>
@@ -30,12 +41,12 @@ export default {
       ],
       index: null,
       options: {
-        type: 'fade',
-        width: '100%',
+        type: 'loop',
         autoHeight: true,
         perPage: 1,
         autoplay: true,
-        interval: 7000
+        interval: 7000,
+        cover: true
       }
     }
   }
@@ -51,16 +62,16 @@ export default {
   background: #000;
   height: 100vh;
   overflow: hidden;
-  &__wrapper {
-    /*display: flex;
-    justify-content: center;
-    align-items: center;*/
-  }
   &__image {
-    @include breakpoint($forKResolution) {
-      min-width: 3840px;
-      height: auto;
-    }
+    width: 100%;
+    height: auto;
   }
+}
+.image {
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
 }
 </style>
